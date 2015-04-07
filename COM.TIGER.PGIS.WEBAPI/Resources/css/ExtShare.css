@@ -1,0 +1,58 @@
+﻿.bmenu {
+    background-image: url(../images/extshare/menu-show.gif) !important;
+}
+.brefresh{
+    background-image: url(../images/extshare/refresh.gif) !important;   
+}
+.bquit
+{
+    background-image: url(../images/extshare/door_out.png) !important;
+}
+.bpath
+{
+    background-image: url(../images/extshare/path.gif) !important;
+}
+.bflag
+{
+    background-image: url(../images/extshare/flag_green.png) !important;
+}
+.bcog
+{
+    background-image: url(../images/extshare/cog.png) !important;
+}
+.bworld
+{
+    background-image: url(../images/extshare/world.png) !important;
+}
+.bzoomin
+{
+    background-image: url(../images/extshare/zoom_in.png) !important;
+}
+.bzoomout
+{
+    background-image: url(../images/extshare/zoom_out.png) !important;
+}
+.beye {
+    background-image: url(../images/extshare/eye.png) !important;
+}
+.bbuilding {
+    background-image: url(../images/extshare/building.png) !important;
+}
+.bgroup {
+    background-image: url(../images/extshare/group.png) !important;
+}
+.bbell {
+    background-image: url(../images/extshare/bell.png) !important;
+}
+.bs {
+    background-image: url(../images/extshare/s1.png) !important;
+}
+.bbookmark {
+    background-image: url(../images/extshare/bookmark.gif) !important;
+}
+.btool {
+    background-image: url(../images/extshare/tool.png) !important;
+}
+.bserver {
+    background-image: url(../images/extshare/server.png) !important;
+}

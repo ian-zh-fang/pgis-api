@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="COM.TIGER.PGIS.WEBAPI.IDao.Dbase" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAABAAAAAAQAABBAAEAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Dbase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COM.TIGER.PGIS.WEBAPI.IDao.QueryWhere" Collapsed="true">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIQAACAIIAAgAAQAAAEAAAAAAAhEAAgAAAA=</HashCode>
+      <FileName>QueryWhere.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="COM.TIGER.PGIS.WEBAPI.IDao.IUpdate" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <InheritanceLine Type="COM.TIGER.PGIS.WEBAPI.IDao.IQueryExecute" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="2" />
+        <Point X="4.375" Y="2" />
+        <Point X="4.375" Y="2.375" />
+        <Point X="4" Y="2.375" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAABAAAAgAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IUpdate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COM.TIGER.PGIS.WEBAPI.IDao.IDbase" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAQAABBAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDbase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COM.TIGER.PGIS.WEBAPI.IDao.IInsert" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="COM.TIGER.PGIS.WEBAPI.IDao.IQueryExecute" FixedFromPoint="true">
+      <Path>
+        <Point X="4.75" Y="2" />
+        <Point X="4.375" Y="2" />
+        <Point X="4.375" Y="0.844" />
+        <Point X="4" Y="0.844" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAQAAAAAAAAAAAAAAgAEAAAAA=</HashCode>
+      <FileName>IInsert.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COM.TIGER.PGIS.WEBAPI.IDao.ISelect" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <InheritanceLine Type="COM.TIGER.PGIS.WEBAPI.IDao.IQueryExecute" FixedFromPoint="true">
+      <Path>
+        <Point X="4.75" Y="2" />
+        <Point X="4.375" Y="2" />
+        <Point X="4.375" Y="3.094" />
+        <Point X="4" Y="3.094" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AoAAAACAAAAQAAgAAgAAAAAAAAAAAAAAAAAAAggAAIA=</HashCode>
+      <FileName>ISelect.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COM.TIGER.PGIS.WEBAPI.IDao.IDelete" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="1.25" Width="1.5" />
+    <InheritanceLine Type="COM.TIGER.PGIS.WEBAPI.IDao.IQueryExecute" FixedFromPoint="true">
+      <Path>
+        <Point X="4.75" Y="2" />
+        <Point X="4.375" Y="2" />
+        <Point X="4.375" Y="1.594" />
+        <Point X="4" Y="1.594" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDelete.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COM.TIGER.PGIS.WEBAPI.IDao.IQueryWhere" Collapsed="true">
+    <Position X="6.75" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IQueryWhere.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COM.TIGER.PGIS.WEBAPI.IDao.IQueryExecute" Collapsed="true">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <AssociationLine Name="IQueryWhere" Type="COM.TIGER.PGIS.WEBAPI.IDao.IQueryWhere" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.438" Y="1.75" />
+        <Point X="5.438" Y="1" />
+        <Point X="6.75" Y="1" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.31" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IQueryExecute.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IQueryWhere" />
+    </ShowAsAssociation>
+  </Interface>
+  <Enum Name="JoinType" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAA=</HashCode>
+      <FileName>JoinType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OrderType" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAA=</HashCode>
+      <FileName>OrderType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

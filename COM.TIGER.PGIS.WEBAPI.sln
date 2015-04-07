@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COM.TIGER.PGIS.WEBAPI.Model", "COM.TIGER.PGIS.WEBAPI.Model\COM.TIGER.PGIS.WEBAPI.Model.csproj", "{3E7B9C59-9755-472E-B87C-DC08072D54DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COM.TIGER.PGIS.WEBAPI", "COM.TIGER.PGIS.WEBAPI\COM.TIGER.PGIS.WEBAPI.csproj", "{D9526B09-5800-422F-94FE-ADF207D128EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COM.TIGER.PGIS.WEBAPI.Tests", "COM.TIGER.PGIS.WEBAPI.Tests\COM.TIGER.PGIS.WEBAPI.Tests.csproj", "{836EF7B0-F78B-4F06-A0FC-F64DA290F18A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COM.TIGER.PGIS.WEBAPI.Dao", "COM.TIGER.PGIS.WEBAPI.Dao\COM.TIGER.PGIS.WEBAPI.Dao.csproj", "{DF7EA879-3FF4-47E9-BF89-520791F8B61F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COM.TIGER.PGIS.WEBAPI.IDao", "COM.TIGER.PGIS.WEBAPI.IDao\COM.TIGER.PGIS.WEBAPI.IDao.csproj", "{8F043BFF-1D0E-4E5F-BBCA-1A83B7ABEE8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COM.TIGER.PGIS.WEBAPI.Dao.SqlServer", "COM.TIGER.PGIS.WEBAPI.Dao.SqlServer\COM.TIGER.PGIS.WEBAPI.Dao.SqlServer.csproj", "{F23A783A-C286-423D-AD5C-165B644D141A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COM.TIGER.PGIS.WEBAPI.Common", "COM.TIGER.PGIS.WEBAPI.Common\COM.TIGER.PGIS.WEBAPI.Common.csproj", "{02EDEC16-C3F9-4680-A963-684C45341E2B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://115.239.252.70:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = COM.TIGER.PGIS.WEBAPI.Model\\COM.TIGER.PGIS.WEBAPI.Model.csproj
+		SccProjectName1 = COM.TIGER.PGIS.WEBAPI.Model
+		SccLocalPath1 = COM.TIGER.PGIS.WEBAPI.Model
+		SccProjectUniqueName2 = COM.TIGER.PGIS.WEBAPI\\COM.TIGER.PGIS.WEBAPI.csproj
+		SccProjectName2 = COM.TIGER.PGIS.WEBAPI
+		SccLocalPath2 = COM.TIGER.PGIS.WEBAPI
+		SccProjectUniqueName3 = COM.TIGER.PGIS.WEBAPI.Tests\\COM.TIGER.PGIS.WEBAPI.Tests.csproj
+		SccProjectName3 = COM.TIGER.PGIS.WEBAPI.Tests
+		SccLocalPath3 = COM.TIGER.PGIS.WEBAPI.Tests
+		SccProjectUniqueName4 = COM.TIGER.PGIS.WEBAPI.Dao\\COM.TIGER.PGIS.WEBAPI.Dao.csproj
+		SccProjectName4 = COM.TIGER.PGIS.WEBAPI.Dao
+		SccLocalPath4 = COM.TIGER.PGIS.WEBAPI.Dao
+		SccProjectUniqueName5 = COM.TIGER.PGIS.WEBAPI.IDao\\COM.TIGER.PGIS.WEBAPI.IDao.csproj
+		SccProjectName5 = COM.TIGER.PGIS.WEBAPI.IDao
+		SccLocalPath5 = COM.TIGER.PGIS.WEBAPI.IDao
+		SccProjectUniqueName6 = COM.TIGER.PGIS.WEBAPI.Dao.SqlServer\\COM.TIGER.PGIS.WEBAPI.Dao.SqlServer.csproj
+		SccProjectName6 = COM.TIGER.PGIS.WEBAPI.Dao.SqlServer
+		SccLocalPath6 = COM.TIGER.PGIS.WEBAPI.Dao.SqlServer
+		SccProjectUniqueName7 = COM.TIGER.PGIS.WEBAPI.Common\\COM.TIGER.PGIS.WEBAPI.Common.csproj
+		SccProjectName7 = COM.TIGER.PGIS.WEBAPI.Common
+		SccLocalPath7 = COM.TIGER.PGIS.WEBAPI.Common
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E7B9C59-9755-472E-B87C-DC08072D54DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7B9C59-9755-472E-B87C-DC08072D54DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7B9C59-9755-472E-B87C-DC08072D54DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7B9C59-9755-472E-B87C-DC08072D54DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9526B09-5800-422F-94FE-ADF207D128EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9526B09-5800-422F-94FE-ADF207D128EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9526B09-5800-422F-94FE-ADF207D128EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9526B09-5800-422F-94FE-ADF207D128EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{836EF7B0-F78B-4F06-A0FC-F64DA290F18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{836EF7B0-F78B-4F06-A0FC-F64DA290F18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{836EF7B0-F78B-4F06-A0FC-F64DA290F18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{836EF7B0-F78B-4F06-A0FC-F64DA290F18A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF7EA879-3FF4-47E9-BF89-520791F8B61F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF7EA879-3FF4-47E9-BF89-520791F8B61F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF7EA879-3FF4-47E9-BF89-520791F8B61F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF7EA879-3FF4-47E9-BF89-520791F8B61F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F043BFF-1D0E-4E5F-BBCA-1A83B7ABEE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F043BFF-1D0E-4E5F-BBCA-1A83B7ABEE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F043BFF-1D0E-4E5F-BBCA-1A83B7ABEE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F043BFF-1D0E-4E5F-BBCA-1A83B7ABEE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F23A783A-C286-423D-AD5C-165B644D141A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F23A783A-C286-423D-AD5C-165B644D141A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F23A783A-C286-423D-AD5C-165B644D141A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F23A783A-C286-423D-AD5C-165B644D141A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02EDEC16-C3F9-4680-A963-684C45341E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02EDEC16-C3F9-4680-A963-684C45341E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02EDEC16-C3F9-4680-A963-684C45341E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02EDEC16-C3F9-4680-A963-684C45341E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
