@@ -41,27 +41,27 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingCompanys(int index, int size)
+        public ApiResult<PagingModel<Model.Company>> PagingCompanys(int index, int size)
         {
             int records = 0;
             var data = Dao.CompanyHandler.Handler.PagingCompanys(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Company>(data, records);
         }
         
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> QueryCompany(string name, string addr, int index, int size)
+        public ApiResult<PagingModel<Model.Company>> QueryCompany(string name, string addr, int index, int size)
         {
             var records = 0;
             var data = Dao.CompanyHandler.Handler.QueryCompany(name, addr, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Company>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PageCompanies(string query, int index, int size)
+        public ApiResult<PagingModel<Model.Company>> PageCompanies(string query, int index, int size)
         {
             var records = 0;
             var data = Dao.CompanyHandler.Handler.PageCompanies(query, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Company>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]

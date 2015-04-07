@@ -10,11 +10,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
     public class BuildingController : BaseApiController
     {
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingBuildings(string name, string address, int index, int size)
+        public ApiResult<PagingModel<Model.OwnerInfoEx>> PagingBuildings(string name, string address, int index, int size)
         {
             var records = 0;
             var buildings = Dao.BuildingHandler.Handler.Page(address, name, index, size, out records);
-            return ResultPaging(buildings, records);
+            return ResultPagingEx<Model.OwnerInfoEx>(buildings, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
@@ -67,7 +67,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingBuildings(string name, int index, int size)
+        public ApiResult<PagingModel<Model.OwnerInfoEx>> PagingBuildings(string name, int index, int size)
         {
             return PagingBuildings(name, string.Empty, index, size);
         }
@@ -372,19 +372,19 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> GetPopulationsOnBuilding(string id, int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfoEx>> GetPopulationsOnBuilding(string id, int index, int size)
         {
             var record = 0;
             var data = Dao.BuildingHandler.Handler.GetPopulationsOnBuilding(id, index, size, out record);
-            return ResultPaging(data, record);
+            return ResultPagingEx<Model.PopulationBasicInfoEx>(data, record);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> GetPopulationsOnUnit(string id, int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfoEx>> GetPopulationsOnUnit(string id, int index, int size)
         {
             var record = 0;
             var data = Dao.BuildingHandler.Handler.GetPopulationsOnUnit(id, index, size, out record);
-            return ResultPaging(data, record);
+            return ResultPagingEx<Model.PopulationBasicInfoEx>(data, record);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
@@ -409,11 +409,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> GetPopulationsOnBuildings(string id, int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> GetPopulationsOnBuildings(string id, int index, int size)
         {
             var records = 0;
             var data = new List<Model.PopulationBasicInfo>();
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]

@@ -24,11 +24,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingFiles(int index, int size)
+        public ApiResult<PagingModel<Model.File>> PagingFiles(int index, int size)
         {
             var records = 0;
             var data = Dao.FileHandler.Handler.Paging(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.File>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]

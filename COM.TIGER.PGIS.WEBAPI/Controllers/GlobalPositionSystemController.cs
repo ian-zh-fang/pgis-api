@@ -51,36 +51,36 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet]
-        public ApiResult<object> PageDevices(int index, int size)
+        public ApiResult<PagingModel<Model.GpsDevice>> PageDevices(int index, int size)
         {
             int records = 0;
             List<Model.GpsDevice> data = GPSHandler.Handler.PageDevices(index, size, out records);
 
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.GpsDevice>(data, records);
         }
 
         [HttpGet]
-        public ApiResult<object> PageDevicesAtNumber(int index, int size, string number)
+        public ApiResult<PagingModel<Model.GpsDevice>> PageDevicesAtNumber(int index, int size, string number)
         {
             int records = 0;
             List<Model.GpsDevice> data = GPSHandler.Handler.PageDevicesAtNumber(index, size, number, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.GpsDevice>(data, records);
         }
 
         [HttpGet]
-        public ApiResult<object> PageDevicesAtOfficer(int index, int size, string officerid)
+        public ApiResult<PagingModel<Model.GpsDevice>> PageDevicesAtOfficer(int index, int size, string officerid)
         {
             int records = 0;
             List<Model.GpsDevice> data = GPSHandler.Handler.PageDevicesAtOfficer(index, size, officerid, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.GpsDevice>(data, records);
         }
 
         [HttpGet]
-        public ApiResult<object> PageDevicesAtCar(int index, int size, string carid)
+        public ApiResult<PagingModel<Model.GpsDevice>> PageDevicesAtCar(int index, int size, string carid)
         {
             int records = 0;
             List<Model.GpsDevice> data = GPSHandler.Handler.PageDevicesAtCar(index, size, carid, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.GpsDevice>(data, records);
         }
 
         [HttpGet]

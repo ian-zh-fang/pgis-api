@@ -17,11 +17,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingPatrolAreas(int index, int size)
+        public ApiResult<PagingModel<Model.PatrolArea>> PagingPatrolAreas(int index, int size)
         {
             var records = 0;
             var data = Dao.PatrolAreaHandler.Handler.Page(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PatrolArea>(data, records);
         }
         
         [HttpGet, HttpPost, ActionAuthentizationFilter]

@@ -156,19 +156,19 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> Page(int index, int size)
+        public ApiResult<PagingModel<Model.MonitorDevice>> Page(int index, int size)
         {
             var records = 0;
             var data = Dao.MonitorDeviceHandler.Handler.Page(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.MonitorDevice>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PageQuery(string name, string num, int dotypeid, string address, int index, int size)
+        public ApiResult<PagingModel<Model.MonitorDevice>> PageQuery(string name, string num, int dotypeid, string address, int index, int size)
         {
             var records = 0;
             var data = Dao.MonitorDeviceHandler.Handler.PageQuery(name, num, dotypeid, address, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.MonitorDevice>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]

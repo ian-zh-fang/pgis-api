@@ -10,7 +10,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
     public class YJBJController : BaseApiController
     {
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> Page(string alarmnum, string alarmname, string alarmtel, string alarmaddress,
+        public ApiResult<PagingModel<Model.YJBJ>> Page(string alarmnum, string alarmname, string alarmtel, string alarmaddress,
             DateTime? timestart, DateTime? timeend,
             int index, int size)
         {
@@ -18,7 +18,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
             var data = Dao.YJBJHandler.Handler.Page(alarmnum, alarmname, alarmtel, alarmaddress, 
                 timestart, timeend, 
                 index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.YJBJ>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]

@@ -59,11 +59,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingStreets(int index, int size)
+        public ApiResult<PagingModel<Model.Street>> PagingStreets(int index, int size)
         {
             var records = 0;
             var data = Dao.StreetHandler.Handler.Page(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Street>(data, records);
         }
     }
 }

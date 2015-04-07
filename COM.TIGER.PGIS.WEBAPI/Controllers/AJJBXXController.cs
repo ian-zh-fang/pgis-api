@@ -10,11 +10,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
     public class AJJBXXController : BaseApiController
     {
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> Query(string bh, string xm, string cnb, int isdrup, int ispursuit, int isarrest, int index, int size)
+        public ApiResult<PagingModel<Model.AJJBXX>> Query(string bh, string xm, string cnb, int isdrup, int ispursuit, int isarrest, int index, int size)
         {
             int records = 0;
             var data = Dao.AJJBXXHandler.Handler.Query(bh, xm, cnb, isdrup, ispursuit, isarrest, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.AJJBXX>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]

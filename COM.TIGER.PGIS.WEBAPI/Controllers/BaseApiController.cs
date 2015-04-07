@@ -133,7 +133,16 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <returns></returns>
         protected ApiResult<object> ResultPaging(object t, int records)
         {
-            return ResultOk<object>(new { TotalRecords = records, Data = t });
+            return ResultOk<object>(new { Data = t, TotalRecords = records });
+        }
+
+        protected ApiResult<PagingModel<T>> ResultPagingEx<T>(List<T> t, int records)
+        {
+            PagingModel<T> m = new PagingModel<T>();
+            m.Data = t;
+            m.TotalRecords = records;
+
+            return ResultOk<PagingModel<T>>(m);
         }
 
         protected void GetXY(double[] coords, out double x1, out double y1, out double x2, out double y2)
@@ -151,6 +160,34 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         {
             base.Initialize(controllerContext);
         }
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = "PagingModel")]
+    public class PagingModel<T>
+    {
+
+        [System.Runtime.Serialization.DataMember(Name = "Data")]
+        public List<T> Data { get; set; }
+
+
+        [System.Runtime.Serialization.DataMember(Name = "TotalRecords")]
+        public int TotalRecords { get; set; }
+    }
+
+    public class PopulationKX:PagingModel<Model.PopulationBasicInfo>
+    {
+
+        [System.Runtime.Serialization.DataMember(Name = "CZCount")]
+        public int CZCount { get; set; }
+
+        [System.Runtime.Serialization.DataMember(Name = "ZZCount")]
+        public int ZZCount { get; set; }
+
+        [System.Runtime.Serialization.DataMember(Name = "JWCount")]
+        public int JWCount { get; set; }
+
+        [System.Runtime.Serialization.DataMember(Name = "ZDCount")]
+        public int ZDCount { get; set; }
     }
 
     public static class LinqEx_Help

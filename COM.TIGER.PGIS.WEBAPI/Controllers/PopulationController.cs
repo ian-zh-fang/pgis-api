@@ -39,11 +39,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="size">每页条目数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingPopulationBasicInfos(int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagingPopulationBasicInfos(int index, int size)
         {
             var records = 0;
             var data = Dao.PopulationHandler.Handler.Page(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         /// <summary>
@@ -54,11 +54,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="size">每页条目数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingPopulationBasicInfos(string name, int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagingPopulationBasicInfos(string name, int index, int size)
         {
             var records = 0;
             var data = Dao.PopulationHandler.Handler.Page(name, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         /// <summary>
@@ -69,11 +69,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="size">每页条目数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagePopulation(string query, int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagePopulation(string query, int index, int size)
         {
             var records = 0;
             var data = Dao.PopulationHandler.Handler.PagePopulation(query, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         /// <summary>
@@ -147,11 +147,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="records">当前查询总条目数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingEntities(string name, string address, int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagingEntities(string name, string address, int index, int size)
         {
             var records = 0;
             var data = Dao.PopulationHandler.Handler.PageEntities(name, address, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         /// <summary>
@@ -171,13 +171,13 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="records">当前查询总条目数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingEntities(string name, string address, string domicile,
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagingEntities(string name, string address, string domicile,
             int genderid, int educationid, int marriageid, int excuageid, int politicalstatusid, int index, int size)
         {
             var records = 0;
             var data = Dao.PopulationHandler.Handler.PageEntities(name, address, domicile, genderid, educationid, 
                 marriageid, excuageid, politicalstatusid, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         /// <summary>
@@ -191,11 +191,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="records">当前查询总条目数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingCZ(string name, string address, int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagingCZ(string name, string address, int index, int size)
         {
             var records = 0;
             var data = Dao.PopulationHandler.Handler.PageCZ(name, address, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         /// <summary>
@@ -215,13 +215,13 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="records">当前查询总条目数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingCZ(string name, string address, string domicile,
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagingCZ(string name, string address, string domicile,
             int genderid, int educationid, int marriageid, int excuageid, int politicalstatusid, int index, int size)
         {
             var records = 0;
             var data = Dao.PopulationHandler.Handler.PageCZ(name, address, domicile, genderid, educationid,
                 marriageid, excuageid, politicalstatusid, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         /// <summary>
@@ -237,11 +237,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="records">当前查询总条目数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingZZ(string name, string cardno, string houseoldname, string houseoldtel, string address, int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagingZZ(string name, string cardno, string houseoldname, string houseoldtel, string address, int index, int size)
         {
             var records = 0;
             var data = Dao.PopulationHandler.Handler.PageZZ(name, cardno, houseoldname, houseoldtel, address, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         /// <summary>
@@ -262,14 +262,14 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="records">当前查询总条目数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingJW(string name, string firstname, string lastname, int countryid, 
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagingJW(string name, string firstname, string lastname, int countryid, 
             int cardtypeid, string cardtypeno, int visatypeid, string visano, string entryport, 
             string address, int index, int size)
         {
             var records = 0;
             var data = Dao.PopulationHandler.Handler.PageJW(name, firstname, lastname, countryid, cardtypeid,
                 cardtypeno, visatypeid, visano, entryport, address, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         /// <summary>
@@ -284,11 +284,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="records">当前查询总条目数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingZD(string name, int importtypeid, string address, int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagingZD(string name, int importtypeid, string address, int index, int size)
         {
             var records = 0;
             var data = Dao.PopulationHandler.Handler.PageZD(name, importtypeid, address, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
         /// <summary>
@@ -307,13 +307,28 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         /// <param name="zdCount">当前查询重点人口数</param>
         /// <returns></returns>
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingKX(int x1, int y1, int x2, int y2, int index, int size)
+        public ApiResult<PopulationKX> PagingKX(int x1, int y1, int x2, int y2, int index, int size)
         {
             int records, czCount, zzCount, jwCount, zdCount;
             var data = Dao.PopulationHandler.Handler.PageKX(x1, y1, x2, y2, index, size, 
                 out records, out czCount, out zzCount, out jwCount, out zdCount);
-            var obj = new { Result = data, CZCount = czCount, ZZCount = zzCount, JWCount = jwCount, ZDCount = zdCount };
-            return ResultPaging(obj, records);
+
+            PopulationKX obj = new PopulationKX()
+            {
+                Data = data,
+                CZCount = czCount,
+                ZZCount = zzCount,
+                JWCount = jwCount,
+                ZDCount = zdCount,
+                TotalRecords = records
+            };
+
+            return ResultPagingEx(obj);
+        }
+
+        protected ApiResult<PopulationKX> ResultPagingEx(PopulationKX t)
+        {
+            return ResultOk<PopulationKX>(t);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
@@ -331,13 +346,13 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> GetKXPopulation(string coords, int index, int size)
+        public ApiResult<PagingModel<Model.PopulationBasicInfoEx>> GetKXPopulation(string coords, int index, int size)
         {
             int records = 0;
             List<Model.PopulationBasicInfoEx> data = new List<Model.PopulationBasicInfoEx>();
 
             if (string.IsNullOrWhiteSpace(coords))
-                return ResultPaging(data, records);
+                return ResultPagingEx<Model.PopulationBasicInfoEx>(data, records);
 
             var coordinates = (from t in coords.Split(',') select double.Parse(t)).ToArray();
             double x1, y1, x2, y2;
@@ -357,7 +372,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
                 data = Dao.PopulationHandler.Handler.Query(coordinates, x1, y1, x2, y2, index, size, out records);
             }
 
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PopulationBasicInfoEx>(data, records);
         }
     }
 }

@@ -13,11 +13,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
     public class CaptureController : BaseApiController
     {
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingCaptures(int index, int size)
+        public ApiResult<PagingModel<Model.Capture>> PagingCaptures(int index, int size)
         {
             var records = 0;
             var data = Dao.CaptureHandler.Handler.Pagging(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Capture>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]

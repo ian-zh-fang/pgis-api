@@ -52,11 +52,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingPatrolTracks(int index, int size)
+        public ApiResult<PagingModel<Model.PatrolTrack>> PagingPatrolTracks(int index, int size)
         {
             var records = 0;
             var data = Dao.PatrolTrackHandler.Handler.Page(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PatrolTrack>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
@@ -88,11 +88,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingRecords(string devicename, string officername, DateTime? timestart, DateTime? timeend, int index, int size)
+        public ApiResult<PagingModel<Model.PatrolRecord>> PagingRecords(string devicename, string officername, DateTime? timestart, DateTime? timeend, int index, int size)
         {
             var records = 0;
             var data = Dao.PatrolTrackHandler.Handler.Page(devicename, officername, timestart, timeend, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.PatrolRecord>(data, records);
         }
     }
 }

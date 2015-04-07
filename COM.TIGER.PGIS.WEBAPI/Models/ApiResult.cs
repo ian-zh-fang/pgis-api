@@ -63,7 +63,7 @@ namespace COM.TIGER.PGIS.WEBAPI
         {
             var ret = new ApiResult<T>();
             ret._message = message;
-            ret._result= result;
+            ret._result = result;
             ret._status = status;
             return ret;
         }

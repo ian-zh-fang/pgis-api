@@ -10,19 +10,19 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
     public class HotelController : BaseApiController
     {
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PageHotels(int index, int size)
+        public ApiResult<PagingModel<Model.Hotel>> PageHotels(int index, int size)
         {
             var records = 0;
             var data = Dao.HotelHandler.Handler.PageHotels(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Hotel>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> GetOnHotel(int id, int index, int size)
+        public ApiResult<PagingModel<Model.HotelStay>> GetOnHotel(int id, int index, int size)
         {
             var records = 0;
             var data = Dao.HotelHandler.Handler.GetOnHotel(id, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.HotelStay>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
@@ -40,11 +40,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> GetOnMove(string code, int index, int size)
+        public ApiResult<PagingModel<Model.HotelStay>> GetOnMove(string code, int index, int size)
         {
             var records = 0;
             var data = Dao.HotelHandler.Handler.GetOnMove(code, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.HotelStay>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
@@ -62,19 +62,19 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> QueryHotel(string name, string addr, int index, int size)
+        public ApiResult<PagingModel<Model.Hotel>> QueryHotel(string name, string addr, int index, int size)
         {
             var records = 0;
             var data = Dao.HotelHandler.Handler.QueryHotel(name, addr, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Hotel>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> QueryHotelStay(string name, string code, string hname, string roomnum, string ptime, string gtime, int index, int size)
+        public ApiResult<PagingModel<Model.HotelStay>> QueryHotelStay(string name, string code, string hname, string roomnum, string ptime, string gtime, int index, int size)
         {
             var records = 0;
             var data = Dao.HotelHandler.Handler.QueryHotelStay(name, code, hname, roomnum, ptime, gtime, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.HotelStay>(data, records);
         }
     }
 }

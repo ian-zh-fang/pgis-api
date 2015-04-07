@@ -10,14 +10,14 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
     public class CompanyMarkController : BaseApiController
     {
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingCompanyMarks(int index, int size, int? type)
+        public ApiResult<PagingModel<Model.CompanyMark>> PagingCompanyMarks(int index, int size, int? type)
         {
             var records = 0;
             if (type == null) {
-                return ResultPaging(Dao.CompanyMarkHandler.Handler.Paging(index, size, out records), records);
+                return ResultPagingEx<Model.CompanyMark>(Dao.CompanyMarkHandler.Handler.Paging(index, size, out records), records);
             }
             var data = Dao.CompanyMarkHandler.Handler.Paging(index, size,(int)type, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.CompanyMark>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]

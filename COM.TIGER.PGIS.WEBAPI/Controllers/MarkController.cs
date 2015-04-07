@@ -25,19 +25,19 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingMarks(int index, int size)
+        public ApiResult<PagingModel<Model.Mark>> PagingMarks(int index, int size)
         {
             var records = 0;
             var data = Dao.MarkHandler.Handler.Paging(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Mark>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingMarks(int index, int size, string name, int typeid)
+        public ApiResult<PagingModel<Model.Mark>> PagingMarks(int index, int size, string name, int typeid)
         {
             var records = 0;
             var data = Dao.MarkHandler.Handler.Paging(index, size, name, typeid, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Mark>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]

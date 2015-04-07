@@ -66,27 +66,27 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingAdministratives(int index, int size)
+        public ApiResult<PagingModel<Model.Administrative>> PagingAdministratives(int index, int size)
         {
             var records = 0;
             var data = Dao.AdministrativeHandler.Handler.Page(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Administrative>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingTop(int index, int size)
+        public ApiResult<PagingModel<Model.Administrative>> PagingTop(int index, int size)
         {
             var records = 0;
             var data = Dao.AdministrativeHandler.Handler.PageTop(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Administrative>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingSub(int id, int index, int size)
+        public ApiResult<PagingModel<Model.Administrative>> PagingSub(int id, int index, int size)
         {
             var records = 0;
             var data = Dao.AdministrativeHandler.Handler.PageSub(id, index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.Administrative>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]

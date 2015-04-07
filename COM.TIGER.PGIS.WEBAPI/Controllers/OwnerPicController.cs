@@ -45,19 +45,19 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingOwnerPics(int index, int size)
+        public ApiResult<PagingModel<Model.OwnerPic>> PagingOwnerPics(int index, int size)
         {
             var records = 0;
             var data = Dao.OwnerPicHandler.Handler.Page(index, size, out records);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.OwnerPic>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
-        public ApiResult<object> PagingOwnerPics(int index, int size, string ids)
+        public ApiResult<PagingModel<Model.OwnerPic>> PagingOwnerPics(int index, int size, string ids)
         {
             var records = 0;
             var data = Dao.OwnerPicHandler.Handler.Page(index, size, out records, ids);
-            return ResultPaging(data, records);
+            return ResultPagingEx<Model.OwnerPic>(data, records);
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
