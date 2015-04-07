@@ -125,5 +125,12 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
 
             return ResultOk<List<Model.GpsDeviceTrack>>(list);
         }
+
+        [HttpGet]
+        public ApiResult<List<Model.GpsDevice>> GetAllDevices()
+        {
+            List<Model.GpsDevice> data = Dao.GPSHandler.Handler.GetAllDevices();
+            return ResultOk<List<Model.GpsDevice>>(data);
+        }
     }
 }

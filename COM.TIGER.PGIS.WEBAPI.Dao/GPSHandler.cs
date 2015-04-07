@@ -211,5 +211,12 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
                 t.Device = devices.FirstOrDefault(x => x.DeviceID == t.DeviceID);
             });
         }
+
+        public List<Model.GpsDevice> GetAllDevices()
+        {
+            var query = SelectHandler.From<Model.GpsDevice>();
+            List<Model.GpsDevice> list = ExecuteList<Model.GpsDevice>(query.Execute().ExecuteDataReader());
+            return list;
+        }
     }
 }
