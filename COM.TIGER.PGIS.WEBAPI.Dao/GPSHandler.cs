@@ -87,7 +87,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             System.Linq.Expressions.Expression<Func<GpsDevice, bool>> expression = null;
 
             if (!string.IsNullOrWhiteSpace(t.OfficerID))
-                expression = x => (x.DeviceID == t.DeviceID || x.OfficerID == t.OfficerID) && x.ID != t.ID
+                expression = x => (x.DeviceID == t.DeviceID || x.OfficerID == t.OfficerID) && x.ID != t.ID;
             else
                 expression = x => (x.DeviceID == t.DeviceID || x.CarNum == t.CarNum) && x.ID != t.ID;
 
