@@ -84,8 +84,14 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             GpsDevice t = obj as GpsDevice;
             if(t == null)
                 return 0;
+            System.Linq.Expressions.Expression<Func<GpsDevice, bool>> expression = null;
 
-            GpsDevice d = GetEntity<GpsDevice>(x => (x.DeviceID == t.DeviceID || x.OfficerID == t.OfficerID || x.CarNum == t.CarNum) && x.ID != t.ID);
+            if (!string.IsNullOrWhiteSpace(t.OfficerID))
+                expression = x => (x.DeviceID == t.DeviceID || x.OfficerID == t.OfficerID) && x.ID != t.ID
+            else
+                expression = x => (x.DeviceID == t.DeviceID || x.CarNum == t.CarNum) && x.ID != t.ID;
+
+            GpsDevice d = GetEntity<GpsDevice>(expression);
             if (d != null)
                 return -2;
 
