@@ -41,5 +41,12 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
             var data = Dao.JCJ_JJDBHandler.Handler.DistributedQuery(timestart);
             return ResultOk<List<Model.JCJ_JJDB>>(data);
         }
+
+        [HttpGet,HttpPost, ActionAuthentizationFilter]
+        public ApiResult<Model.JCJ_JJDB> GetLatestCase()
+        {
+            Model.JCJ_JJDB t = Dao.JCJ_JJDBHandler.Handler.GetLatestCase();
+            return ResultOk<Model.JCJ_JJDB>(t);
+        }
     }
 }

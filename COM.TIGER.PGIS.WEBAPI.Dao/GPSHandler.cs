@@ -59,7 +59,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             if (t == null)
                 return 0;
 
-            GpsDevice d = GetEntity<GpsDevice>(x => x.DeviceID == t.DeviceID || x.OfficerID == t.OfficerID || x.CarNum == t.CarNum);
+            GpsDevice d = GetEntity<GpsDevice>(GetExpression(t));
             if (d != null)
                 return -2;
 
@@ -69,6 +69,14 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
                 .Values(t.BdTime, t.CarID, t.CarNum, t.DeviceID, t.OfficerID)
                 .Execute()
                 .ExecuteNonQuery();
+        }
+
+        private System.Linq.Expressions.Expression<Func<GpsDevice, bool>> GetExpression(GpsDevice m)
+        {
+            if (!string.IsNullOrWhiteSpace(m.OfficerID))
+                return t => t.DeviceID == m.DeviceID || t.OfficerID == m.OfficerID;
+
+            return t => t.DeviceID == m.DeviceID || t.CarNum == m.CarNum;
         }
 
         public override int UpdateEntity(object obj)

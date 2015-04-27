@@ -72,6 +72,16 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             return GetEntities<Model.JCJ_JJDB>(t => t.AlarmTime >= time && t.AlarmTime <= DateTime.Now);
         }
 
+        /// <summary>
+        /// 获取最近一次三台合一报警信息
+        /// </summary>
+        /// <returns></returns>
+        public Model.JCJ_JJDB GetLatestCase()
+        {
+            IDao.ISelect query = SelectHandler.From<Model.JCJ_JJDB>().OrderBy(OrderType.Desc, "AlarmTime");
+            return ExecuteEntity<Model.JCJ_JJDB>(query.Execute().ExecuteDataReader());
+        }
+
         /*******************************************************************
          *  综合查询
          * *****************************************************************

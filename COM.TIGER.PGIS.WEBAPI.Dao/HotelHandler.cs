@@ -87,7 +87,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             //@ 首先获取指定的地址，如果不存在直接返回
             var address = AddressHandler.Handler.GetEntity(addr);
             if (address == null)
-                return 0;
+                return -100;
 
             return UpdateHandler.Table<Model.Hotel>()
                 .Set("AddressID").EqualTo(address.ID)
