@@ -112,6 +112,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Model
                 if (Parent == null) return Name;
                 return string.Format("{0},{1}", Parent.FullName, Name);
             }
+            private set { }
         }
         
         private System.Collections.Generic.List<Administrative> _items = new System.Collections.Generic.List<Administrative>();

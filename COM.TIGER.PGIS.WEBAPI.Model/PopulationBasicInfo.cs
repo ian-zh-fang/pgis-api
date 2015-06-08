@@ -120,6 +120,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Model
                 }
                 return _LiveTypeDesc = str;
             }
+            private set { _LiveTypeDesc = value; }
         }
 
         private string _Nation;
