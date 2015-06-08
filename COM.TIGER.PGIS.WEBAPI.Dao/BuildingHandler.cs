@@ -733,6 +733,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             int rst = 0;
             try
             {
+                //tran = new System.Transactions.TransactionScope();
                 var building = GetEntity<Model.Building>(t => t.OwnerInfoID == e.OwnerInfoID);
                 var ownerinfo = GetEntity<Model.OwnerInfo>(t => t.MOI_ID == e.OwnerInfoID);
                 var adminid = 0;
@@ -747,12 +748,12 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
                 //保存地址信息
                 string address = string.Format("{0},{1},{2}", ownerinfo.MOI_OwnerAddress, e.UnitName, e.RoomName);
 
-                //tran = new System.Transactions.TransactionScope();
+                
                 //保存房间信息
                 rst = RoomHandler.Handler.InsertEntity(e);
 
-                CheckAddress(address, adminid, e.OwnerInfoID, streetid, numid, e.UnitID);
-                address = string.Format("{0},{1}", address, e.RoomName);
+                //CheckAddress(address, adminid, e.OwnerInfoID, streetid, numid, e.UnitID);
+                //address = string.Format("{0},{1}", address, e.RoomName);
                 var room = GetEntity<Model.Rooms>(t =>
                     t.OwnerInfoID == e.OwnerInfoID &&
                     t.RoomArea == e.RoomArea &&
@@ -942,7 +943,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             return UpdateHandler.Table<Model.Company>()
                 .Set("AddressID").EqualTo(addrid)
                 .Set("RoomID").EqualTo(roomid)
-                .Where<Model.Company>(t => t.ID.In(ids))
+                .Where(string.Format("{0}.ID in ({1})", GetTableName<Model.Company>(), ids))
                 .Execute()
                 .ExecuteNonQuery();
         }
@@ -959,7 +960,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
 
             return UpdateHandler.Table<Model.PopulationBasicInfo>()
                 .Set("CurrentAddrID").EqualTo(addrid)
-                .Where<Model.PopulationBasicInfo>(t => t.ID.In(ids))
+                .Where(string.Format("{0}.ID in ({1})", GetTableName<Model.PopulationBasicInfo>(), ids))
                 .Execute()
                 .ExecuteNonQuery();
         }
