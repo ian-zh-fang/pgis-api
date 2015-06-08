@@ -1007,10 +1007,10 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
                 .Join(JoinType.Inner, aname).On(string.Format("{0}.ID = {1}.CurrentAddrID", aname, pname))
                 .Join(JoinType.Inner, ename).On(string.Format("{0}.MEH_MOI_ID = {1}.OwnerInfoID", ename, aname))
                 .Where<Model.PopulationBasicInfo>(t => t.LiveTypeID == mod)
-                .Where(string.Format("({0}.MEH_CenterX >= {1})", ename, x1))
-                .Where(string.Format("({0}.MEH_CenterX <= {1})", ename, x2))
-                .Where(string.Format("({0}.MEH_CenterY >= {1})", ename, y1))
-                .Where(string.Format("({0}.MEH_CenterY <= {1})", ename, y2))
+                .Where(string.Format("(CAST({0}.MEH_CenterX as float) >= CAST({1} as float))", ename, x1))
+                .Where(string.Format("(CAST({0}.MEH_CenterX as float) <= CAST({1} as float))", ename, x2))
+                .Where(string.Format("(CAST({0}.MEH_CenterY as float) >= CAST({1} as float))", ename, y1))
+                .Where(string.Format("(CAST({0}.MEH_CenterY as float) <= CAST({1} as float))", ename, y2))
                 .GroupBy(string.Format("{0}.MEH_CenterX, {0}.MEH_CenterY, {0}.MEH_MOI_ID", ename));
 
             return ExecuteList<Model.Maptheme>(query.Execute().ExecuteDataReader());
