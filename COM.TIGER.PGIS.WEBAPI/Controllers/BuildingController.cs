@@ -67,6 +67,13 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
+        public ApiResult<List<Model.OwnerInfoEx>> GetBuilding(string ids)
+        {
+            List<Model.OwnerInfoEx> data = Dao.BuildingHandler.Handler.GetEntitiesAt(ids);
+            return ResultOk<List<Model.OwnerInfoEx>>(data);
+        }
+
+        [HttpGet, HttpPost, ActionAuthentizationFilter]
         public ApiResult<PagingModel<Model.OwnerInfoEx>> PagingBuildings(string name, int index, int size)
         {
             return PagingBuildings(name, string.Empty, index, size);

@@ -61,6 +61,18 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             return ExecuteList<Model.OwnerInfoEx>(GetQuery().Execute().ExecuteDataReader());
         }
 
+        public List<Model.OwnerInfoEx> GetEntitiesAt(params string[] ids)
+        {
+            if (ids.Length == 0)
+                return ExecuteList<Model.OwnerInfoEx>(GetQuery().Execute().ExecuteDataReader());
+
+            return ExecuteList<Model.OwnerInfoEx>(
+                GetQuery()
+                .Where(string.Format("Map_OwnerInfo.MOI_ID in ({0})", string.Join(",", ids)))
+                .Execute()
+                .ExecuteDataReader());
+        }
+
         /// <summary>
         /// 批量获取指定ID的大楼信息
         /// </summary>
