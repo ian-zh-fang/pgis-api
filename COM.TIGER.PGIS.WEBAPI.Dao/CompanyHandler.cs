@@ -173,8 +173,8 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             if (list == null) return;
             if (list.Count == 0) return;
 
-            string[] ids = (from t in list select t.AddressID.ToString()).ToArray();
-            var addresses = GetEntities<Model.Address>(t => t.ID.In(ids));
+            string[] ids = (from t in list select t.AddressID.ToString()).Distinct().ToArray();
+            var addresses = AddressHandler.Handler.GetEntities(ids);
             list.ForEach(t => t.Address = addresses.FirstOrDefault(x => t.AddressID == x.ID));
         }
 

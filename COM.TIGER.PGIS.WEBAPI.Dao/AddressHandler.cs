@@ -44,7 +44,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             var nums = ids.Length == 0 ? new List<Model.StreetNum>() : GetEntities<Model.StreetNum>(t => t.ID.In(ids));
             
             ids = (from t in list select t.OwnerInfoID.ToString()).ToArray();
-            var ownerinfos = ids.Length == 0 ? new List<Model.OwnerInfo>() : GetEntities<Model.OwnerInfo>(t => t.MOI_ID.In(ids));
+            var ownerinfos = BuildingHandler.Handler.GetEntitiesAt(ids);
             
             ids = (from t in list select t.RoomID.ToString()).ToArray();
             var rooms = ids.Length == 0 ? new List<Model.Rooms>() : GetEntities<Model.Rooms>(t => t.Room_ID.In(ids));
