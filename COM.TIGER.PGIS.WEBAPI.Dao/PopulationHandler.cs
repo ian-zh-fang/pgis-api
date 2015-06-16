@@ -157,13 +157,17 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
         /// 获取指定大楼的信息
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="livetypeid">居住类型：1-常住；2-暂住；3-境外；4-重点；0-所有</param>
         /// <param name="index"></param>
         /// <param name="size"></param>
         /// <param name="reocords"></param>
         /// <returns></returns>
-        public List<Model.PopulationBasicInfoEx> GetPopulationsOnBuilding(string id, int index, int size, out int records)
+        public List<Model.PopulationBasicInfoEx> GetPopulationsOnBuilding(string id, int livetypeid, int index, int size, out int records)
         {
             var query = GetQueryJoinAddress().Where<Model.Address>(t => t.OwnerInfoID.In(id));
+            if (livetypeid > 0)
+                query = query.Where<Model.PopulationBasicInfo>(t => t.LiveTypeID == livetypeid);
+
             var list = Paging<Model.PopulationBasicInfoEx>(query, index, size, out records);
             SetEntityExtention(ref list);
             return list;

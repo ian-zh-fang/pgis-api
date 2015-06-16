@@ -387,6 +387,14 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
+        public ApiResult<PagingModel<Model.PopulationBasicInfoEx>> GetPopulationsOnBuilding(string id, int livetypeid, int index, int size)
+        {
+            var record = 0;
+            var data = Dao.PopulationHandler.Handler.GetPopulationsOnBuilding(id, livetypeid, index, size, out record);
+            return ResultPagingEx<Model.PopulationBasicInfoEx>(data, record);
+        }
+
+        [HttpGet, HttpPost, ActionAuthentizationFilter]
         public ApiResult<PagingModel<Model.PopulationBasicInfoEx>> GetPopulationsOnUnit(string id, int index, int size)
         {
             var record = 0;

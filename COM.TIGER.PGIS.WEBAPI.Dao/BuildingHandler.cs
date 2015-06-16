@@ -929,7 +929,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
 
         public List<Model.PopulationBasicInfoEx> GetPopulationsOnBuilding(string id, int index, int size, out int records)
         {
-            return PopulationHandler.Handler.GetPopulationsOnBuilding(id, index, size, out records);
+            return PopulationHandler.Handler.GetPopulationsOnBuilding(id, 0, index, size, out records);
         }
 
         public List<Model.PopulationBasicInfoEx> GetPopulationsOnUnit(string id, int index, int size, out int records)
