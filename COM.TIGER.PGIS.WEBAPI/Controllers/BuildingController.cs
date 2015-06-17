@@ -18,6 +18,13 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
         }
 
         [HttpGet, HttpPost, ActionAuthentizationFilter]
+        public ApiResult<List<string>> QueryBuildingAddress(string patternStr)
+        {
+            var data = Dao.BuildingHandler.Handler.QueryBuildingAddress(patternStr);
+            return ResultOk<List<string>>(data);
+        }
+
+        [HttpGet, HttpPost, ActionAuthentizationFilter]
         public ApiResult<Model.OwnerInfoEx> GetEntity(int id)
         {
             var e = Dao.BuildingHandler.Handler.Entity(id);

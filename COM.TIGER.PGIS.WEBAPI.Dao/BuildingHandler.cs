@@ -544,6 +544,35 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             return rst;
         }
 
+        public List<string> QueryBuildingAddress(string patternStr)
+        {
+            string sqlstr = "select top 10 tttemp.* from (select distinct Pgis_Building.address from Pgis_Building) as tttemp";
+            if (!string.IsNullOrWhiteSpace(patternStr))
+            {
+                sqlstr = string.Format("{0} where tttemp.Address like '%{1}%'", sqlstr, patternStr.Trim());
+            }
+
+            List<string> addresses = new List<string>();
+            System.Data.IDataReader reader = null;
+            try
+            {
+                reader = new IDao.Dbase().ExecuteDataReader(sqlstr);
+                while (reader.Read())
+                {
+                    addresses.Add(reader.GetValue(0).ToString());
+                }
+            }
+            catch (Exception) { }
+            finally {
+                if (null != reader)
+                {
+                    reader.Close();
+                    reader.Dispose();
+                }
+            }
+            return addresses;
+        }
+
         //修正地址信息
         private void CorrectAddress(string oldaddress, string newaddress, int id, int adminid = 0, int streetid = 0, int numid = 0)
         {

@@ -126,6 +126,7 @@
     <Compile Include="Controllers\QueryWhere.cs" />
     <Compile Include="Controllers\Select.cs" />
     <Compile Include="Controllers\Insert.cs" />
+    <Compile Include="Controllers\Building.cs" />
     <Compile Include="Controllers\Update.cs" />
     <Compile Include="DAL\Department.cs" />
     <Compile Include="DAL\Menu.cs" />

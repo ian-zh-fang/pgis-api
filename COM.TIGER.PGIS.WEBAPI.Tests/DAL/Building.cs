@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace COM.TIGER.PGIS.WEBAPI.Tests.DAL
@@ -46,6 +47,15 @@ namespace COM.TIGER.PGIS.WEBAPI.Tests.DAL
             var records = 0;
             items = Dao.BuildingHandler.Handler.Page("", "", 1, 10, out records);
             Assert.IsTrue(records > 0);
+        }
+
+        [TestMethod]
+        public void QueryBuildingAddress()
+        {
+            string patternStr = "";
+            List<string> addresses = Dao.BuildingHandler.Handler.QueryBuildingAddress(patternStr);
+            Assert.IsNotNull(addresses);
+            Assert.IsTrue(addresses.Count > 0);
         }
         
         /// <summary>
