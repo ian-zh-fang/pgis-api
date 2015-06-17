@@ -38,6 +38,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             return GetEntities<Model.AbroadPerson>(t => t.PoID == popid);
         }
 
+        public List<Model.AbroadPerson> GetEntities(string cardNo)
+        {
+            return GetEntities<Model.AbroadPerson>(t => t.CardNo == cardNo);
+        }
+
         /// <summary>
         /// 获取指定人员的最新的入境信息
         /// </summary>

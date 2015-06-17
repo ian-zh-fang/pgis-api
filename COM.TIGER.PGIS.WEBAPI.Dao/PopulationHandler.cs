@@ -315,6 +315,11 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             return AbroadPersonHandler.Handler.GetEntities(id);
         }
 
+        public List<Model.AbroadPerson> GetAbroadRecords(string cardNo)
+        {
+            return AbroadPersonHandler.Handler.GetEntities(cardNo);
+        }
+
         /********************************************************************
          *  按条件分页查询数据
          * ******************************************************************

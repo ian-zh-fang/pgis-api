@@ -136,6 +136,13 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
             return ResultOk<List<Model.AbroadPerson>>(data);
         }
 
+        [HttpGet, HttpPost, ActionAuthentizationFilter]
+        public ApiResult<List<Model.AbroadPerson>> GetAbroadRecords(string cardNo)
+        {
+            var data = Dao.PopulationHandler.Handler.GetAbroadRecords(cardNo);
+            return ResultOk<List<Model.AbroadPerson>>(data);
+        }
+
         /// <summary>
         /// 分页实有人口指定姓名，住址基本信息，并获取当前页码数据
         /// <para>一般性查询</para>
