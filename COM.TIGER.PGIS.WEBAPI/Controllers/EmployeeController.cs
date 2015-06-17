@@ -64,5 +64,12 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
             var data = Dao.EmployeeHandler.Handler.GetQuitEmployeesOnHotel(id, index, size, out records);
             return ResultPagingEx<Model.Employee>(data, records);
         }
+
+        [HttpGet, HttpPost, ActionAuthentizationFilter]
+        public ApiResult<List<Model.CompanyEmployee>> QueryEmployees(string cardNo)
+        {
+            var data = Dao.EmployeeHandler.Handler.QueryEmployees(cardNo);
+            return ResultOk<List<Model.CompanyEmployee>>(data);
+        }
     }
 }

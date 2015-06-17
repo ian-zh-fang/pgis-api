@@ -217,6 +217,16 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             return list;
         }
 
+        public List<Model.Company> GetCompanies(params string[] ids)
+        {
+            if (ids.Length == 0)
+                return new List<Model.Company>();
+
+            List<Model.Company> list = GetEntities<Model.Company>(t => t.ID.In(ids));
+            GetAddresses(ref list);
+            return list;
+        }
+
         private IDao.ISelect GetQuery()
         {
             var ncomp = GetTableName<Model.Company>();
