@@ -192,10 +192,10 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
             if (string.IsNullOrWhiteSpace(deviceId))
                 return new List<GpsDeviceTrack>();
 
-            List<GpsDeviceTrack> list = GetEntities<GpsDeviceTrack>(t =>
-                t.DeviceID.Like(deviceId)
-                && t.CurrentTime >= start
-                && t.CurrentTime <= end);
+            var query = SelectHandler.From<GpsDeviceTrack>()
+                .Where<GpsDeviceTrack>(t => t.DeviceID.Like(deviceId) && t.CurrentTime >= start && t.CurrentTime <= end)
+                .OrderBy(OrderType.Asc, "Pgis_GpsDeviceTrack.CurrentTime");
+            List<GpsDeviceTrack> list = ExecuteList<GpsDeviceTrack>(query.Execute().ExecuteDataReader());
             SetDevice(ref list);
 
             return list;
