@@ -480,7 +480,21 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
         private void CheckAddress(string address, int adminid = 0, int ownerinfoid = 0, int streetid = 0, int numid = 0, int unitid = 0, int roomid = 0)
         {
             if (string.IsNullOrWhiteSpace(address)) return;
-            if (GetEntity<Model.Address>(t => t.Content == address) != null) return;
+
+            Model.Address addr = null;
+            if (null != (addr = GetEntity<Model.Address>(t => t.Content == address)))
+            {
+                addr.AdminID = adminid;
+                //addr.Content = address;
+                addr.NumID = numid;
+                addr.OwnerInfoID = ownerinfoid;
+                addr.RoomID = roomid;
+                addr.StreetID = streetid;
+                addr.UnitID = unitid;
+                AddressHandler.Handler.UpdateEntity(addr);
+
+                return;
+            }
 
             AddressHandler.Handler.InsertEntity(new Model.Address() { 
                 AdminID = adminid, UnitID = unitid, StreetID = streetid, RoomID = roomid, OwnerInfoID = ownerinfoid, NumID = numid, Content = address 
