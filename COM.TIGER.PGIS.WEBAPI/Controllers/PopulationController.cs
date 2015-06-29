@@ -161,6 +161,14 @@ namespace COM.TIGER.PGIS.WEBAPI.Controllers
             return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
         }
 
+        [HttpGet, HttpPost, ActionAuthentizationFilter]
+        public ApiResult<PagingModel<Model.PopulationBasicInfo>> PagingEntities(string name, string address, string cardno, string aliasename, int index, int size)
+        {
+            var records = 0;
+            var data = Dao.PopulationHandler.Handler.PageEntities(name, address, cardno, aliasename, index, size, out records);
+            return ResultPagingEx<Model.PopulationBasicInfo>(data, records);
+        }
+
         /// <summary>
         /// 分页查询指定人员姓名，当前住址基本信息，并获取当前页码数据
         /// <para>高级查询</para>

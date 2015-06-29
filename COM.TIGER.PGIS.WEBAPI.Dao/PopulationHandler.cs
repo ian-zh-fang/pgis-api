@@ -341,17 +341,44 @@ namespace COM.TIGER.PGIS.WEBAPI.Dao
         /// <returns></returns>
         public List<Model.PopulationBasicInfo> PageEntities(string name, string address, int index, int size, out int records)
         {
+            //var query = GetQuery();
+            //if (!string.IsNullOrWhiteSpace(name))
+            //{
+            //    GetQueryMatchName(name, ref query);
+            //}
+
+            //if (!string.IsNullOrWhiteSpace(address))
+            //{
+            //    query = GetQueryJoinAddress(query);
+            //    GetQueryMatchAddress(address, ref query);
+            //}
+
+            //var list = Paging<Model.PopulationBasicInfo>(query, index, size, out records);
+            //SetEntityExtention(ref list);
+            //return list;
+
+            return PageEntities(name, address, null, null, index, size, out records);
+        }
+
+        public List<Model.PopulationBasicInfo> PageEntities(string name, string addr, string cardno, string aliasename, int index, int size, out int records)
+        {
             var query = GetQuery();
             if (!string.IsNullOrWhiteSpace(name))
             {
                 GetQueryMatchName(name, ref query);
             }
 
-            if (!string.IsNullOrWhiteSpace(address))
+            if (!string.IsNullOrWhiteSpace(addr))
             {
                 query = GetQueryJoinAddress(query);
-                GetQueryMatchAddress(address, ref query);
+                GetQueryMatchAddress(addr, ref query);
             }
+
+            if (!string.IsNullOrWhiteSpace(cardno))
+                query = query.Where<Model.PopulationBasicInfo>(t => t.CardNo.Like(cardno));
+
+            if (!string.IsNullOrWhiteSpace(aliasename))
+                query = query.Where<Model.PopulationBasicInfo>(t => t.OtherName.Like(aliasename));
 
             var list = Paging<Model.PopulationBasicInfo>(query, index, size, out records);
             SetEntityExtention(ref list);

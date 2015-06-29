@@ -204,6 +204,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Model
     /// ´óÂ¥ÐÅÏ¢
     /// </summary>
     [System.Runtime.Serialization.DataContract(Name = "OwnerInfoEx", Namespace = "http://www.tigerhz.com/web/api/model/")]
+    [System.Runtime.Serialization.KnownType(typeof(OwnerInfoEx))]
     public class OwnerInfoEx : OwnerInfo
     {
 
@@ -517,6 +518,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Model
                 _items.CopyTo(arr);
                 return arr;
             }
+            private set { _items.AddRange(value); }
         }
 
         private System.Collections.Generic.List<Model.Unit> _units = new System.Collections.Generic.List<Unit>();
@@ -527,6 +529,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Model
         public Model.Unit[] Units
         {
             get { return _units.ToArray(); }
+            private set { _units.AddRange(value); }
         }
 
         private System.Collections.Generic.List<Model.Rooms> _rooms = new System.Collections.Generic.List<Rooms>();
@@ -541,6 +544,7 @@ namespace COM.TIGER.PGIS.WEBAPI.Model
                 _units.ForEach(t => Add(t.Rooms));
                 return _rooms.ToArray(); 
             }
+            private set { _rooms.AddRange(value); }
         }
 
         /// <summary>
